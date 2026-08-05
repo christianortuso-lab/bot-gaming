@@ -9,7 +9,7 @@ def ottieni_offerte():
         API_URL,
         params={
             "storeID": 1,
-            "pageSize": 30,
+            "pageSize": 50,
             "sortBy": "Savings"
         },
         headers={

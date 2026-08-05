@@ -4,7 +4,7 @@ import schedule
 
 def avvia(funzione):
 
-    schedule.every(10).minutes.do(funzione)
+    schedule.every(1).minutes.do(funzione)
 
     print("Scheduler avviato.")
     print("Controllo ogni 10 minuti.\n")
