@@ -7,7 +7,7 @@ def avvia(funzione):
     schedule.every(1).minutes.do(funzione)
 
     print("Scheduler avviato.")
-    print("Controllo ogni 10 minuti.\n")
+    print("Controllo ogni 1 minuto.\n")
 
     while True:
         schedule.run_pending()
