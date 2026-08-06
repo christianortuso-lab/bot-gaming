@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 from deals.steam import ottieni_offerte
 from formatter.post import crea_post
@@ -12,12 +13,13 @@ from utils.database import (
 
 def controlla_offerte():
 
-    from datetime import datetime
     print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Nuovo controllo...")
 
     crea_database()
 
     offerte = ottieni_offerte()
+
+    print(f"Offerte trovate dopo i filtri: {len(offerte)}")
 
     if not offerte:
         print("Nessuna offerta trovata.")
@@ -61,11 +63,13 @@ def controlla_offerte():
 
         time.sleep(5)
 
+    print(
+        f"Controllo terminato. Pubblicate {pubblicati} nuove offerte.\n"
+    )
+
 
 from scheduler.runner import avvia
 
 if __name__ == "__main__":
-
     controlla_offerte()
-
     avvia(controlla_offerte)
