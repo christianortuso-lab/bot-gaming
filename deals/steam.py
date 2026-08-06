@@ -40,20 +40,20 @@ def ottieni_offerte():
             f"{recensioni} recensioni"
         )
 
-        if prezzo > 10:
+        if prezzo > 20:
             print(" -> Scartato: prezzo troppo alto")
             continue
 
         if sconto < 85:
-            print(" -> Scartato: sconto sotto il 90%")
+            print(" -> Scartato: sconto sotto il 85%")
             continue
 
         if voto < 75:
-            print(" -> Scartato: voto Steam sotto l'80%")
+            print(" -> Scartato: voto Steam sotto il 75 %")
             continue
 
         if recensioni < 20:
-            print(" -> Scartato: meno di 100 recensioni")
+            print(" -> Scartato: meno di 20 recensioni")
             continue
 
         print(" -> ACCETTATO\n")
