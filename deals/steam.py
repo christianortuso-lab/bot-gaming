@@ -26,18 +26,39 @@ def ottieni_offerte():
 
     for offerta in offerte:
 
-        if float(offerta["salePrice"]) > 10:
+        titolo = offerta["title"]
+        prezzo = float(offerta["salePrice"])
+        sconto = float(offerta["savings"])
+        voto = int(offerta["steamRatingPercent"])
+        recensioni = int(offerta["steamRatingCount"])
+
+        print(
+            f"{titolo} | "
+            f"{prezzo}€ | "
+            f"{sconto:.1f}% | "
+            f"{voto}% | "
+            f"{recensioni} recensioni"
+        )
+
+        if prezzo > 10:
+            print(" -> Scartato: prezzo troppo alto")
             continue
 
-        if float(offerta["savings"]) < 90:
+        if sconto < 90:
+            print(" -> Scartato: sconto sotto il 90%")
             continue
 
-        if int(offerta["steamRatingPercent"]) < 80:
+        if voto < 80:
+            print(" -> Scartato: voto Steam sotto l'80%")
             continue
 
-        if int(offerta["steamRatingCount"]) < 100:
+        if recensioni < 100:
+            print(" -> Scartato: meno di 100 recensioni")
             continue
 
+        print(" -> ACCETTATO\n")
         offerte_filtrate.append(offerta)
+
+    print(f"\nTotale offerte filtrate: {len(offerte_filtrate)}")
 
     return offerte_filtrate
